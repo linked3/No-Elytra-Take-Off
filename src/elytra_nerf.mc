@@ -19,12 +19,12 @@ dir clocks {
 
 dir events {
   function creeper_near_player {
-    effect give @s minecraft:levitation 10 128 true
+    execute if data entity @s Inventory[{Slot: 102b, id: "minecraft:elytra"}] run effect give @s minecraft:levitation 10 128 true
     effect give @s minecraft:slowness 1 0 true
   }
 
   function zombies_hurt_player {
-    effect give @s minecraft:levitation 10 128 true
+    execute if data entity @s Inventory[{Slot: 102b, id: "minecraft:elytra"}] run effect give @s minecraft:levitation 10 128 true
     effect give @s minecraft:hunger 3 80 true
     playsound minecraft:entity.zombies.hurt player @s ~ ~ ~ 1.5 0.35
     advancement revoke @s only elytra_nerf:zombies_hurt_player
@@ -38,7 +38,7 @@ dir events {
   }
 
   function skeletons_hurt_player {
-    effect give @s minecraft:levitation 10 128 true
+    execute if data entity @s Inventory[{Slot: 102b, id: "minecraft:elytra"}] run effect give @s minecraft:levitation 10 128 true
     advancement revoke @s only elytra_nerf:skeletons_hurt_player
   }
 }
