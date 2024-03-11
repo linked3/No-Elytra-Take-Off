@@ -2,7 +2,7 @@
 #### _This datapack not only enhances combat difficulty but also addresses the issue of Elytras being overpowered, preventing easy escape from fights without active engagement._
 
 ### Main feature
-When wearing an elytra and having firework rockets in your inventory, you can easily escape any danger. To counter this, when certain mobs or players hit you, you will start limping and won't be able to activate your elytra for 10 seconds.
+When wearing an elytra and carrying firework rockets, you can easily escape danger as soon as it arises. To counter this, when certain mobs or players hit you, you will start limping and won't be able to activate your elytra for 10 seconds.
 Additionally, you won't be able to perform critical hits during this period. This discourages players from entering battles with their elytra equipped.
 Furthermore, players can be shot down when flying with the elytra. If hurt in flight, they will plummet down from their height.
 
