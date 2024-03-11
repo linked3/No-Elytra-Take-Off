@@ -11,7 +11,7 @@ Zombies will inflict the Hunger effect with every hit, causing you to lose 3 dru
 When you approach creepers, they will slow you down and prevent you from taking off as well. Spiders can now trap you in their cobwebs when attacking.
 
 ### Compatibility
-There is compatibility with the [Elytra Slot mod](https://modrinth.com/mod/elytra-slot)
+There is compatibility with the [Elytra Slot mod](https://modrinth.com/mod/elytra-slot).
 Compatibility with Icarus is being worked on.
 
 This datapack is inspired by the mob mechanics found in [True Survival](https://modrinth.com/datapack/true-survival).
