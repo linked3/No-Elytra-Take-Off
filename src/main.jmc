@@ -1,0 +1,67 @@
+advancement revoke @a from __namespace__:root;
+schedule function clock_1s() 1s;
+$nearby_monster_count = 0;
+
+function clock_1s() {
+  execute as @a at @s if entity @e[type=creeper,distance=..5] run events.creeper_near_player();
+  schedule function clock_1s() 1s;
+}
+
+class effects {
+  function give_levitaion() {
+    effect give @s minecraft:levitation 10 128 true;
+  }
+}
+class checks {
+  function check_for_wings() {
+    data modify storage __namespace__:cape id set string entity @s cardinal_components.trinkets:trinkets.chest.cape.Items[0].id;
+      if(data storage __namespace__:cape id) {
+        data modify storage __namespace__:cape id set string storage __namespace__:cape id 0 6;
+        $does_not_wear_wings = data modify storage __namespace__:cape id set value "icarus";
+        if(!$does_not_wear_wings) {
+          effects.give_levitaion();
+        }
+      }
+  }
+}
+
+class events {
+  function entity_hurt_player() {
+    if(predicate __namespace__:is_flying) {
+      effect give @s minecraft:levitation 1 128 true;
+    } else if(predicate __namespace__:could_take_off) {
+      effects.give_levitaion();
+    } else {
+      checks.check_for_wings();
+    }
+    advancement revoke @s only __namespace__:entity_hurt_player;
+  }
+
+  function zombies_hurt_player() {
+    effect give @s minecraft:hunger 3 80 true;
+    playsound minecraft:entity.zombie.hurt player @s ~ ~ ~ 1.5 0.35;
+    advancement revoke @s only __namespace__:zombies_hurt_player;
+  }
+  
+  function spider_hurt_player() {
+    $nearby_monster_count = execute if entity @e[type=#no_elytra_take_off:monsters_that_cause_levitation,distance=..10];
+    if($nearby_monster_count matches 0..3) {
+        playsound minecraft:entity.spider.step player @s ~ ~ ~ 1.5 0.35;
+        setblock ~ ~ ~ minecraft:cobweb keep;
+    }
+    advancement revoke @s only __namespace__:spider_hurt_player;
+  }
+
+  function creeper_near_player() {
+    effect give @s minecraft:slowness 1 1 true;
+    if (predicate __namespace__:could_take_off) {
+      effects.give_levitaion();
+    } else {
+      checks.check_for_wings();
+    }
+  }
+}
+
+function uninstall() {
+  data remove storage __namespace__:cape id;
+}

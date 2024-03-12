@@ -1,0 +1,6 @@
+#bind __namespace__
+#static "advancements"
+#static "predicates"
+#static "tags"
+#credit "Licensed under GPL-3.0-or-later"
+#uninstall

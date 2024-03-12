@@ -1,0 +1,7 @@
+{
+    "namespace": "no_elytra_take_off",
+    "description": "A nerf to the elytra that causes you to limp after being hit by monsters, rendering you unable to fly off.",
+    "pack_format": "15",
+    "target": "main.jmc",
+    "output": ".."
+}
