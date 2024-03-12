@@ -9,6 +9,7 @@ function clock_1s() {
 
 class effects {
   function give_levitaion() {
+    playsound minecraft:entity.zombie.step player @s ~ ~ ~ 1 1.4;
     effect give @s minecraft:levitation 10 128 true;
   }
 }
